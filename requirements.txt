@@ -1,0 +1,12 @@
+requests
+pandas
+numpy
+chainlit
+tensorflow
+python-dotenv  
+transformers
+fastapi 
+uvicorn 
+docker
+pytest 
+kaggle 

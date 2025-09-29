@@ -1,0 +1,61 @@
+2025-09-29 23:51:09,187 - INFO - Created directory: src\components
+2025-09-29 23:51:09,187 - INFO - Created empty file: src\components\data_ingestion.py
+2025-09-29 23:51:09,187 - INFO - Created directory: src\components
+2025-09-29 23:51:09,188 - INFO - Created empty file: src\components\data_cleaning.py
+2025-09-29 23:51:09,188 - INFO - Created directory: src\components
+2025-09-29 23:51:09,188 - INFO - Created empty file: src\components\feature_engineering.py
+2025-09-29 23:51:09,189 - INFO - Created directory: src\components
+2025-09-29 23:51:09,189 - INFO - Created empty file: src\components\model_nlp_intent.py
+2025-09-29 23:51:09,189 - INFO - Created directory: src\components
+2025-09-29 23:51:09,190 - INFO - Created empty file: src\components\model_risk_predictor.py
+2025-09-29 23:51:09,192 - INFO - Created directory: src\components
+2025-09-29 23:51:09,192 - INFO - Created empty file: src\components\recommendation_engine.py
+2025-09-29 23:51:09,192 - INFO - Created directory: src\components
+2025-09-29 23:51:09,193 - INFO - Created empty file: src\components\api_gnews_fetcher.py
+2025-09-29 23:51:09,193 - INFO - Created directory: src\components
+2025-09-29 23:51:09,193 - INFO - Created empty file: src\components\api_weather_fetcher.py
+2025-09-29 23:51:09,194 - INFO - Created directory: src\config
+2025-09-29 23:51:09,194 - INFO - Created empty file: src\config\config.py
+2025-09-29 23:51:09,194 - INFO - Created directory: src\constants
+2025-09-29 23:51:09,195 - INFO - Created empty file: src\constants\constants.py
+2025-09-29 23:51:09,195 - INFO - Created directory: src\entity
+2025-09-29 23:51:09,195 - INFO - Created empty file: src\entity\event_entity.py
+2025-09-29 23:51:09,195 - INFO - Created directory: src\entity
+2025-09-29 23:51:09,196 - INFO - Created empty file: src\entity\prediction_entity.py
+2025-09-29 23:51:09,196 - INFO - Created directory: src\pipeline
+2025-09-29 23:51:09,197 - INFO - Created empty file: src\pipeline\train_pipeline.py
+2025-09-29 23:51:09,198 - INFO - Created directory: src\pipeline
+2025-09-29 23:51:09,198 - INFO - Created empty file: src\pipeline\predict_pipeline.py
+2025-09-29 23:51:09,198 - INFO - Created directory: src\pipeline
+2025-09-29 23:51:09,199 - INFO - Created empty file: src\pipeline\inference_pipeline.py
+2025-09-29 23:51:09,199 - INFO - Created directory: src\utils
+2025-09-29 23:51:09,200 - INFO - Created empty file: src\utils\helpers.py
+2025-09-29 23:51:09,200 - INFO - Created directory: src\utils
+2025-09-29 23:51:09,200 - INFO - Created empty file: src\utils\logger.py
+2025-09-29 23:51:09,201 - INFO - Created directory: src\app
+2025-09-29 23:51:09,201 - INFO - Created empty file: src\app\chatbot.py
+2025-09-29 23:51:09,202 - INFO - Created directory: src\app
+2025-09-29 23:51:09,202 - INFO - Created empty file: src\app\session_manager.py
+2025-09-29 23:51:09,203 - INFO - Created directory: src\app
+2025-09-29 23:51:09,203 - INFO - Created empty file: src\app\response_templates.py
+2025-09-29 23:51:09,203 - INFO - Created directory: tests
+2025-09-29 23:51:09,204 - INFO - Created empty file: tests\test_data_ingestion.py
+2025-09-29 23:51:09,204 - INFO - Created directory: tests
+2025-09-29 23:51:09,204 - INFO - Created empty file: tests\test_model_nlp_intent.py
+2025-09-29 23:51:09,205 - INFO - Created directory: tests
+2025-09-29 23:51:09,205 - INFO - Created empty file: tests\test_model_risk_predictor.py
+2025-09-29 23:51:09,205 - INFO - Created directory: tests
+2025-09-29 23:51:09,206 - INFO - Created empty file: tests\test_chainlit_app.py
+2025-09-29 23:51:09,206 - INFO - Created directory: artifacts\data\raw
+2025-09-29 23:51:09,206 - INFO - Created directory: artifacts\data\processed
+2025-09-29 23:51:09,207 - INFO - Created directory: artifacts\models\nlp_intent_entity
+2025-09-29 23:51:09,207 - INFO - Created directory: artifacts\models\risk_predictor
+2025-09-29 23:51:09,207 - INFO - Created directory: artifacts\logs
+2025-09-29 23:51:09,207 - INFO - Created directory: .
+2025-09-29 23:51:09,208 - INFO - File already exists: requirements.txt and is not empty.
+2025-09-29 23:51:09,208 - INFO - Created directory: .
+2025-09-29 23:51:09,208 - INFO - Created empty file: Dockerfile
+2025-09-29 23:51:09,208 - INFO - Created directory: .
+2025-09-29 23:51:09,209 - INFO - File already exists: README.md and is not empty.
+2025-09-29 23:51:09,209 - INFO - Created directory: .
+2025-09-29 23:51:09,209 - INFO - File already exists: .env and is not empty.
