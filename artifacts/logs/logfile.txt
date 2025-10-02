@@ -59,3 +59,82 @@
 2025-09-29 23:51:09,209 - INFO - File already exists: README.md and is not empty.
 2025-09-29 23:51:09,209 - INFO - Created directory: .
 2025-09-29 23:51:09,209 - INFO - File already exists: .env and is not empty.
+2025-10-03 00:16:50,413 - INFO - Created directory: src\components
+2025-10-03 00:16:50,414 - INFO - File already exists: src\components\data_ingestion.py and is not empty.
+2025-10-03 00:16:50,414 - INFO - Created directory: src\components
+2025-10-03 00:16:50,414 - INFO - File already exists: src\components\data_cleaning.py and is not empty.
+2025-10-03 00:16:50,415 - INFO - Created directory: src\components
+2025-10-03 00:16:50,415 - INFO - File already exists: src\components\feature_engineering.py and is not empty.
+2025-10-03 00:16:50,416 - INFO - Created directory: src\components
+2025-10-03 00:16:50,416 - INFO - Created empty file: src\components\model_nlp_intent.py
+2025-10-03 00:16:50,416 - INFO - Created directory: src\components
+2025-10-03 00:16:50,417 - INFO - Created empty file: src\components\model_risk_predictor.py
+2025-10-03 00:16:50,417 - INFO - Created directory: src\components
+2025-10-03 00:16:50,418 - INFO - Created empty file: src\components\recommendation_engine.py
+2025-10-03 00:16:50,418 - INFO - Created directory: src\components
+2025-10-03 00:16:50,418 - INFO - File already exists: src\components\api_gnews_fetcher.py and is not empty.
+2025-10-03 00:16:50,419 - INFO - Created directory: src\components
+2025-10-03 00:16:50,419 - INFO - File already exists: src\components\api_weather_fetcher.py and is not empty.
+2025-10-03 00:16:50,419 - INFO - Created directory: src\config
+2025-10-03 00:16:50,420 - INFO - Created empty file: src\config\config.py
+2025-10-03 00:16:50,420 - INFO - Created directory: src\constants
+2025-10-03 00:16:50,421 - INFO - Created empty file: src\constants\constants.py
+2025-10-03 00:16:50,421 - INFO - Created directory: src\entity
+2025-10-03 00:16:50,422 - INFO - Created empty file: src\entity\event_entity.py
+2025-10-03 00:16:50,422 - INFO - Created directory: src\entity
+2025-10-03 00:16:50,423 - INFO - Created empty file: src\entity\prediction_entity.py
+2025-10-03 00:16:50,423 - INFO - Created directory: src\pipeline
+2025-10-03 00:16:50,424 - INFO - Created empty file: src\pipeline\train_pipeline.py
+2025-10-03 00:16:50,424 - INFO - Created directory: src\pipeline
+2025-10-03 00:16:50,425 - INFO - Created empty file: src\pipeline\predict_pipeline.py
+2025-10-03 00:16:50,425 - INFO - Created directory: src\pipeline
+2025-10-03 00:16:50,426 - INFO - Created empty file: src\pipeline\inference_pipeline.py
+2025-10-03 00:16:50,426 - INFO - Created directory: src\utils
+2025-10-03 00:16:50,427 - INFO - Created empty file: src\utils\helpers.py
+2025-10-03 00:16:50,427 - INFO - Created directory: src\utils
+2025-10-03 00:16:50,428 - INFO - File already exists: src\utils\logger.py and is not empty.
+2025-10-03 00:16:50,428 - INFO - Created directory: src\app
+2025-10-03 00:16:50,429 - INFO - Created empty file: src\app\chatbot.py
+2025-10-03 00:16:50,431 - INFO - Created directory: src\app
+2025-10-03 00:16:50,433 - INFO - Created empty file: src\app\session_manager.py
+2025-10-03 00:16:50,434 - INFO - Created directory: src\app
+2025-10-03 00:16:50,434 - INFO - Created empty file: src\app\response_templates.py
+2025-10-03 00:16:50,435 - INFO - Created directory: tests
+2025-10-03 00:16:50,435 - INFO - File already exists: tests\test_data_ingestion.py and is not empty.
+2025-10-03 00:16:50,436 - INFO - Created directory: tests
+2025-10-03 00:16:50,437 - INFO - Created empty file: tests\test_model_nlp_intent.py
+2025-10-03 00:16:50,437 - INFO - Created directory: tests
+2025-10-03 00:16:50,438 - INFO - Created empty file: tests\test_model_risk_predictor.py
+2025-10-03 00:16:50,438 - INFO - Created directory: tests
+2025-10-03 00:16:50,439 - INFO - Created empty file: tests\test_chainlit_app.py
+2025-10-03 00:16:50,440 - INFO - Created directory: artifacts\data\raw
+2025-10-03 00:16:50,441 - INFO - Created directory: artifacts\data\processed
+2025-10-03 00:16:50,442 - INFO - Created directory: artifacts\models\nlp_intent_entity
+2025-10-03 00:16:50,443 - INFO - Created directory: artifacts\models\risk_predictor
+2025-10-03 00:16:50,443 - INFO - Created directory: artifacts\logs
+2025-10-03 00:16:50,444 - INFO - Created directory: .
+2025-10-03 00:16:50,444 - INFO - File already exists: requirements.txt and is not empty.
+2025-10-03 00:16:50,445 - INFO - Created directory: .
+2025-10-03 00:16:50,445 - INFO - Created empty file: Dockerfile
+2025-10-03 00:16:50,446 - INFO - Created directory: .
+2025-10-03 00:16:50,447 - INFO - File already exists: README.md and is not empty.
+2025-10-03 00:16:50,447 - INFO - Created directory: .
+2025-10-03 00:16:50,448 - INFO - Created empty file: .env
+2025-10-03 00:24:44,079 - INFO - News events loaded successfully: (40, 6)
+2025-10-03 00:24:44,095 - INFO - Weather alerts loaded successfully: (8, 16)
+2025-10-03 00:24:46,646 - INFO - Historic incidents loaded successfully (ISO-8859-1): (180519, 53)
+2025-10-03 00:26:08,654 - INFO - News events loaded successfully: (40, 6)
+2025-10-03 00:26:08,655 - INFO - Weather alerts loaded successfully: (8, 16)
+2025-10-03 00:26:11,253 - INFO - Historic incidents loaded successfully (ISO-8859-1): (180519, 53)
+2025-10-03 00:26:38,445 - INFO - Cleaned news events: (38, 5)
+2025-10-03 00:26:38,445 - INFO - WeNews ather Alerts cleaned successfully: shape (38, 5)
+2025-10-03 00:26:38,458 - INFO - Cleaned weather alerts: (8, 6)
+2025-10-03 00:26:38,458 - INFO - Weather Alerts cleaned successfully: shape (8, 6)
+2025-10-03 00:26:42,673 - INFO - Cleaned supply chain CSV: (180519, 53)
+2025-10-03 00:26:42,673 - INFO - Supply chain CSV cleaned successfully: shape (180519, 53)
+2025-10-03 00:26:55,402 - INFO - Engineered news event features: (38, 10)
+2025-10-03 00:26:55,405 - INFO - Saved engineered news features.
+2025-10-03 00:26:55,428 - INFO - Engineered weather features: (8, 11)
+2025-10-03 00:26:55,430 - INFO - Saved engineered weather features.
+2025-10-03 00:26:58,962 - INFO - Engineered supply chain features: (180519, 251)
+2025-10-03 00:27:13,722 - INFO - Saved engineered supply chain features.

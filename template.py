@@ -1,22 +1,10 @@
 import os
 from pathlib import Path
-import logging
 
-os.makedirs('artifacts/logs', exist_ok=True)
+import sys
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-
-for handler in logging.root.handlers[:]:
-    logging.root.removeHandler(handler)
-
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(os.path.join('artifacts', 'logs', 'logfile.txt')),
-        logging.StreamHandler()
-    ]
-)
+from src.utils.logger import *
 
 project_name = 'AI-Powered-Supply-Chain-Risk-Advisor-Chatbot'
 
