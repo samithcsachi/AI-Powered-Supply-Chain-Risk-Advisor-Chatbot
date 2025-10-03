@@ -10,3 +10,5 @@ uvicorn
 docker
 pytest 
 kaggle 
+scikit-learn
+joblib
