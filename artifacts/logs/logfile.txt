@@ -154,3 +154,168 @@ weighted avg       1.00      1.00      1.00     36104
  [    0 19796]]
 2025-10-04 00:40:55,656 - INFO - ROC-AUC: 1.0000000000000002
 2025-10-04 00:40:55,711 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\random_forest_risk_predictor.joblib
+2025-10-04 23:46:12,842 - INFO - Training data shape: (144415, 230), Test data shape: (36104, 230)
+2025-10-04 23:46:24,677 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     16308
+           1       1.00      1.00      1.00     19796
+
+    accuracy                           1.00     36104
+   macro avg       1.00      1.00      1.00     36104
+weighted avg       1.00      1.00      1.00     36104
+
+2025-10-04 23:46:24,679 - INFO - Confusion Matrix:
+[[16308     0]
+ [    0 19796]]
+2025-10-04 23:46:24,680 - INFO - ROC-AUC: 1.0000000000000002
+2025-10-04 23:46:24,804 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\random_forest_risk_predictor.joblib
+2025-10-04 23:47:55,566 - INFO - Training data shape: (144415, 230), Test data shape: (36104, 230)
+2025-10-04 23:48:05,959 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     16308
+           1       1.00      1.00      1.00     19796
+
+    accuracy                           1.00     36104
+   macro avg       1.00      1.00      1.00     36104
+weighted avg       1.00      1.00      1.00     36104
+
+2025-10-04 23:48:05,960 - INFO - Confusion Matrix:
+[[16308     0]
+ [    0 19796]]
+2025-10-04 23:48:05,960 - INFO - ROC-AUC: 1.0000000000000002
+2025-10-04 23:48:06,027 - INFO - Top 10 Most Important Features:
+2025-10-04 23:48:06,031 - INFO -                           feature  importance
+4              Late_delivery_risk    0.490515
+28                 lead_time_days    0.160492
+0        Days for shipping (real)    0.131986
+1   Days for shipment (scheduled)    0.054100
+42   Shipping_Mode_Standard Class    0.053295
+39      Shipping_Mode_First Class    0.041654
+41     Shipping_Mode_Second Class    0.016641
+37   Order_Status_Suspected_Fraud    0.015825
+29          Order_Status_Canceled    0.012580
+40         Shipping_Mode_Same Day    0.003697
+2025-10-04 23:48:06,078 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\random_forest_risk_predictor.joblib
+2025-10-04 23:50:06,874 - INFO - Training data shape: (144415, 226), Test data shape: (36104, 226)
+2025-10-04 23:50:47,338 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.70      0.86      0.78     16308
+           1       0.86      0.70      0.77     19796
+
+    accuracy                           0.77     36104
+   macro avg       0.78      0.78      0.77     36104
+weighted avg       0.79      0.77      0.77     36104
+
+2025-10-04 23:50:47,338 - INFO - Confusion Matrix:
+[[14090  2218]
+ [ 5957 13839]]
+2025-10-04 23:50:47,339 - INFO - ROC-AUC: 0.8720911151855376
+2025-10-04 23:50:47,479 - INFO - Top 10 Most Important Features:
+2025-10-04 23:50:47,487 - INFO -                          feature  importance
+38  Shipping_Mode_Standard Class    0.098412
+35     Shipping_Mode_First Class    0.075753
+6                       Latitude    0.043868
+8              Order Customer Id    0.043524
+9                       Order Id    0.043185
+3                    Customer Id    0.043167
+13                 Order Item Id    0.043026
+7                      Longitude    0.041411
+19        Order Profit Per Order    0.035819
+0              Benefit per order    0.035684
+2025-10-04 23:50:52,739 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\random_forest_risk_predictor.joblib
+2025-10-04 23:52:48,454 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-04 23:53:23,083 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.66      0.81      0.73     16308
+           1       0.81      0.66      0.73     19796
+
+    accuracy                           0.73     36104
+   macro avg       0.73      0.73      0.73     36104
+weighted avg       0.74      0.73      0.73     36104
+
+2025-10-04 23:53:23,084 - INFO - Confusion Matrix:
+[[13205  3103]
+ [ 6765 13031]]
+2025-10-04 23:53:23,084 - INFO - ROC-AUC: 0.8101814293753112
+2025-10-04 23:53:23,202 - INFO - Top 10 Most Important Features:
+2025-10-04 23:53:23,207 - INFO -                          feature  importance
+34  Shipping_Mode_Standard Class    0.101591
+31     Shipping_Mode_First Class    0.071970
+5                       Latitude    0.059815
+6                      Longitude    0.056294
+0              Benefit per order    0.051167
+15        Order Profit Per Order    0.051157
+11       Order Item Profit Ratio    0.045373
+3               Customer Zipcode    0.040582
+1             Sales per customer    0.037524
+14              Order Item Total    0.037316
+2025-10-04 23:53:28,089 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\random_forest_risk_predictor.joblib
+2025-10-04 23:57:49,722 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-04 23:59:12,128 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-05 00:01:55,820 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-05 00:07:03,792 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-05 00:07:55,858 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-05 00:08:15,933 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-05 00:08:26,697 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-05 00:08:26,698 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-05 00:08:26,698 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-05 00:08:26,727 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\gradient_boosting_risk_predictor.joblib
+2025-10-05 00:10:20,791 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-05 00:10:30,917 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-05 00:10:30,918 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-05 00:10:30,918 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-05 00:10:30,934 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-05 00:13:49,910 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-05 00:14:01,587 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-05 00:14:01,588 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-05 00:14:01,588 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-05 00:15:45,005 - INFO - Top 10 Most Important Features (Permutation Importance):
+2025-10-05 00:15:45,010 - INFO -                           feature  importance
+34   Shipping_Mode_Standard Class    0.114383
+31      Shipping_Mode_First Class    0.018829
+29   Order_Status_Suspected_Fraud    0.014262
+21          Order_Status_Canceled    0.011592
+32         Shipping_Mode_Same Day    0.002983
+33     Shipping_Mode_Second Class    0.000554
+16                  Order Zipcode    0.000407
+209    Order_Country_Turkmenistán    0.000078
+96             Order_Country_Cuba    0.000011
+175         Order_Country_Polonia    0.000008
+2025-10-05 00:15:45,049 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
