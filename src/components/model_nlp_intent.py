@@ -54,36 +54,36 @@ def generate_synthetic_data():
     return pd.DataFrame(data)
 
 def main():
-    # Generate synthetic data
+   
     df = generate_synthetic_data()
     
-    # Encode labels
+
     label_encoder = LabelEncoder()
     df['label'] = label_encoder.fit_transform(df['intent'])
     
-    # Split data
+   
     X_train, X_test, y_train, y_test = train_test_split(
         df['text'], df['label'], test_size=0.2, random_state=42, stratify=df['label']
     )
     
-    # Initialize tokenizer and model
+ 
     tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
     model = TFDistilBertForSequenceClassification.from_pretrained(
         'distilbert-base-uncased', 
         num_labels=len(label_encoder.classes_)
     )
     
-    # Tokenize data
+ 
     train_encodings = tokenizer(list(X_train), truncation=True, padding=True, max_length=128, return_tensors='tf')
     test_encodings = tokenizer(list(X_test), truncation=True, padding=True, max_length=128, return_tensors='tf')
     
-    # Create dataset
+ 
     train_dataset = tf.data.Dataset.from_tensor_slices((
         dict(train_encodings),
         y_train.values
     )).batch(8)
     
-    # Compile model
+    
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=5e-5),
         loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
@@ -103,7 +103,7 @@ def main():
     
     logger.info(f"Intent classification model saved to {model_dir}")
     
-    # Test with sample queries
+  
     test_queries = [
         "Is there risk for my Beijing shipment?",
         "Any weather problems today?",
