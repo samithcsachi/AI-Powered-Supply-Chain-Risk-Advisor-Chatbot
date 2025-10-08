@@ -46,6 +46,9 @@ list_of_paths = [
     "tests/test_data_ingestion.py",
     "tests/test_model_nlp_intent.py",
     "tests/test_model_risk_predictor.py",
+    "tests/test_model_nlp_ner.py",
+    "tests/test_model_timeseries_risk.py",
+    "tests/test_recommendation_engine.py",
     "tests/test_chainlit_app.py",
 
     # artifacts/

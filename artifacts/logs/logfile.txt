@@ -329,3 +329,12 @@ weighted avg       0.77      0.71      0.70     36104
 2025-10-07 00:40:41,229 - INFO - Entities for: Storm warning for Shanghai route
 2025-10-07 00:40:41,230 - INFO - Storm           --> B-EVENT
 2025-10-07 00:40:41,230 - INFO - Shanghai        --> B-LOC
+2025-10-09 01:17:54,512 - INFO - Sequence shape: (43, 7, 5); Labels: (43,)
+2025-10-09 01:17:55,191 - INFO - Training LSTM risk model.
+2025-10-09 01:18:00,834 - INFO - Test Accuracy: 0.7778
+2025-10-09 01:18:00,910 - INFO - Saved LSTM model and scaler to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\timeseries_risk
+2025-10-09 01:18:00,910 - INFO - Demo prediction for next-day risk using last window of test set:
+2025-10-09 01:18:01,646 - INFO - Predicted next-day risk score: 0.594 (region: Shanghai)
+2025-10-09 01:18:39,022 - INFO - Recommendation for Shanghai (risk: 0.85): reroute/switch_supplier/delay
+2025-10-09 01:18:39,022 - INFO - Recommendation for Delhi (risk: 0.55): continue_monitor
+2025-10-09 01:18:39,025 - INFO - Recommendation for Mumbai (risk: 0.15): proceed

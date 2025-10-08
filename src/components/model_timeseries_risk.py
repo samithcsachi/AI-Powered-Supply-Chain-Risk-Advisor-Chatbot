@@ -4,10 +4,12 @@ import tensorflow as tf
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import joblib
+import sys
 from pathlib import Path
-import logging
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from utils.logger import *
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+import logging
 logger = logging.getLogger(__name__)
 
 data_path = Path(__file__).resolve().parents[2] / "artifacts" / "data" / "processed" / "supply_chain_disruptions_features.csv"
