@@ -319,3 +319,13 @@ weighted avg       0.77      0.71      0.70     36104
 96             Order_Country_Cuba    0.000011
 175         Order_Country_Polonia    0.000008
 2025-10-05 00:15:45,049 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-07 00:37:24,187 - INFO - Starting NER model training.
+2025-10-07 00:40:11,051 - INFO - Starting NER model training.
+2025-10-07 00:40:38,826 - INFO - Training complete.
+2025-10-07 00:40:40,817 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-07 00:40:41,004 - INFO - Entities for: Flood in Mumbai caused delays
+2025-10-07 00:40:41,004 - INFO - Flood           --> B-EVENT
+2025-10-07 00:40:41,017 - INFO - Mumbai          --> B-LOC
+2025-10-07 00:40:41,229 - INFO - Entities for: Storm warning for Shanghai route
+2025-10-07 00:40:41,230 - INFO - Storm           --> B-EVENT
+2025-10-07 00:40:41,230 - INFO - Shanghai        --> B-LOC
