@@ -1,0 +1,53 @@
+{
+  "count": 1,
+  "data": [
+    {
+      "app_temp": 24.9,
+      "aqi": 78,
+      "city_name": "Shanghai",
+      "clouds": 0,
+      "country_code": "CN",
+      "datetime": "2025-10-11:18",
+      "dewpt": 22.3,
+      "dhi": 0,
+      "dni": 0,
+      "elev_angle": -37.98,
+      "ghi": 0,
+      "gust": 1,
+      "h_angle": -90,
+      "lat": 31.2304,
+      "lon": 121.4737,
+      "ob_time": "2025-10-11 19:32",
+      "pod": "n",
+      "precip": 0,
+      "pres": 1011,
+      "rh": 90,
+      "slp": 1012,
+      "snow": 0,
+      "solar_rad": 0,
+      "sources": [
+        "analysis",
+        "radar",
+        "satellite"
+      ],
+      "state_code": "23",
+      "station": "ZSSS",
+      "sunrise": "21:56",
+      "sunset": "09:28",
+      "temp": 24.1,
+      "timezone": "Asia/Shanghai",
+      "ts": 1760211125,
+      "uv": 0,
+      "vis": 16,
+      "weather": {
+        "icon": "c01n",
+        "code": 800,
+        "description": "Clear sky"
+      },
+      "wind_cdir": "E",
+      "wind_cdir_full": "east",
+      "wind_dir": 79,
+      "wind_spd": 1
+    }
+  ]
+}

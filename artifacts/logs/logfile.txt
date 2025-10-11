@@ -338,3 +338,74 @@ weighted avg       0.77      0.71      0.70     36104
 2025-10-09 01:18:39,022 - INFO - Recommendation for Shanghai (risk: 0.85): reroute/switch_supplier/delay
 2025-10-09 01:18:39,022 - INFO - Recommendation for Delhi (risk: 0.55): continue_monitor
 2025-10-09 01:18:39,025 - INFO - Recommendation for Mumbai (risk: 0.15): proceed
+2025-10-11 23:45:43,179 - INFO - Starting data refresh workflow...
+2025-10-11 23:45:43,182 - INFO - Directory created: data/news
+2025-10-11 23:45:43,184 - INFO - Fetching GNews for keyword: Mumbai
+2025-10-11 23:45:44,690 - INFO - Fetched 10 articles for 'Mumbai'
+2025-10-11 23:45:44,705 - INFO - Snapshot saved: data/news\gnews_Mumbai_20251011_234544.json
+2025-10-11 23:45:44,705 - INFO - GNews data for Mumbai saved.
+2025-10-11 23:45:44,705 - INFO - Fetching GNews for keyword: Shanghai
+2025-10-11 23:45:45,971 - INFO - Fetched 10 articles for 'Shanghai'
+2025-10-11 23:45:45,971 - INFO - Snapshot saved: data/news\gnews_Shanghai_20251011_234545.json
+2025-10-11 23:45:45,983 - INFO - GNews data for Shanghai saved.
+2025-10-11 23:45:45,983 - INFO - Fetching GNews for keyword: New York
+2025-10-11 23:45:47,213 - INFO - Fetched 10 articles for 'New York'
+2025-10-11 23:45:47,229 - INFO - Snapshot saved: data/news\gnews_New_York_20251011_234547.json
+2025-10-11 23:45:47,229 - INFO - GNews data for New York saved.
+2025-10-11 23:45:47,238 - INFO - Directory created: data/weather
+2025-10-11 23:45:47,238 - ERROR - Error fetching Weather for Mumbai: WeatherFetcher.fetch_weather() missing 1 required positional argument: 'lon'
+2025-10-11 23:45:47,238 - ERROR - Error fetching Weather for Shanghai: WeatherFetcher.fetch_weather() missing 1 required positional argument: 'lon'
+2025-10-11 23:45:47,238 - ERROR - Error fetching Weather for New York: WeatherFetcher.fetch_weather() missing 1 required positional argument: 'lon'
+2025-10-11 23:45:47,244 - INFO - All data refreshes complete.
+2025-10-11 23:46:58,725 - INFO - Starting data refresh workflow...
+2025-10-11 23:46:58,725 - INFO - Fetching GNews for keyword: Mumbai
+2025-10-11 23:47:00,049 - INFO - Fetched 10 articles for 'Mumbai'
+2025-10-11 23:47:00,055 - INFO - Snapshot saved: data/news\gnews_Mumbai_20251011_234700.json
+2025-10-11 23:47:00,055 - INFO - GNews data for Mumbai saved.
+2025-10-11 23:47:00,057 - INFO - Fetching GNews for keyword: Shanghai
+2025-10-11 23:47:01,323 - INFO - Fetched 10 articles for 'Shanghai'
+2025-10-11 23:47:01,323 - INFO - Snapshot saved: data/news\gnews_Shanghai_20251011_234701.json
+2025-10-11 23:47:01,323 - INFO - GNews data for Shanghai saved.
+2025-10-11 23:47:01,323 - INFO - Fetching GNews for keyword: New York
+2025-10-11 23:47:02,772 - INFO - Fetched 10 articles for 'New York'
+2025-10-11 23:47:02,772 - INFO - Snapshot saved: data/news\gnews_New_York_20251011_234702.json
+2025-10-11 23:47:02,785 - INFO - GNews data for New York saved.
+2025-10-11 23:47:02,788 - INFO - Fetching weather for lat/lon: 19.076,72.8777
+2025-10-11 23:47:04,133 - INFO - Weather fetch success for 19.076,72.8777
+2025-10-11 23:47:04,149 - INFO - Snapshot saved: data/weather\weather_Mumbai_20251011_234704.json
+2025-10-11 23:47:04,149 - INFO - Weather data for Mumbai saved.
+2025-10-11 23:47:04,149 - INFO - Fetching weather for lat/lon: 31.2304,121.4737
+2025-10-11 23:47:04,999 - INFO - Weather fetch success for 31.2304,121.4737
+2025-10-11 23:47:05,015 - INFO - Snapshot saved: data/weather\weather_Shanghai_20251011_234704.json
+2025-10-11 23:47:05,015 - INFO - Weather data for Shanghai saved.
+2025-10-11 23:47:05,016 - INFO - Fetching weather for lat/lon: 40.7128,-74.006
+2025-10-11 23:47:05,902 - INFO - Weather fetch success for 40.7128,-74.006
+2025-10-11 23:47:05,906 - INFO - Snapshot saved: data/weather\weather_New_York_20251011_234705.json
+2025-10-11 23:47:05,906 - INFO - Weather data for New York saved.
+2025-10-11 23:47:05,908 - INFO - All data refreshes complete.
+2025-10-11 23:56:20,221 - INFO - Starting data refresh workflow...
+2025-10-11 23:56:20,221 - INFO - Fetching GNews for keyword: Mumbai
+2025-10-11 23:56:21,777 - INFO - Fetched 10 articles for 'Mumbai'
+2025-10-11 23:56:21,796 - INFO - Snapshot saved: data/news\gnews_Mumbai_20251011_235621.json
+2025-10-11 23:56:21,798 - INFO - GNews data for Mumbai saved.
+2025-10-11 23:56:21,800 - INFO - Fetching GNews for keyword: Shanghai
+2025-10-11 23:56:23,087 - INFO - Fetched 10 articles for 'Shanghai'
+2025-10-11 23:56:23,089 - INFO - Snapshot saved: data/news\gnews_Shanghai_20251011_235623.json
+2025-10-11 23:56:23,093 - INFO - GNews data for Shanghai saved.
+2025-10-11 23:56:23,093 - INFO - Fetching GNews for keyword: New York
+2025-10-11 23:56:24,360 - INFO - Fetched 10 articles for 'New York'
+2025-10-11 23:56:24,381 - INFO - Snapshot saved: data/news\gnews_New_York_20251011_235624.json
+2025-10-11 23:56:24,382 - INFO - GNews data for New York saved.
+2025-10-11 23:56:24,383 - INFO - Fetching weather for lat/lon: 19.076,72.8777
+2025-10-11 23:56:25,490 - INFO - Weather fetch success for 19.076,72.8777
+2025-10-11 23:56:25,498 - INFO - Snapshot saved: data/weather\weather_Mumbai_20251011_235625.json
+2025-10-11 23:56:25,500 - INFO - Weather data for Mumbai saved.
+2025-10-11 23:56:25,500 - INFO - Fetching weather for lat/lon: 31.2304,121.4737
+2025-10-11 23:56:26,354 - INFO - Weather fetch success for 31.2304,121.4737
+2025-10-11 23:56:26,367 - INFO - Snapshot saved: data/weather\weather_Shanghai_20251011_235626.json
+2025-10-11 23:56:26,367 - INFO - Weather data for Shanghai saved.
+2025-10-11 23:56:26,367 - INFO - Fetching weather for lat/lon: 40.7128,-74.006
+2025-10-11 23:56:27,154 - INFO - Weather fetch success for 40.7128,-74.006
+2025-10-11 23:56:27,160 - INFO - Snapshot saved: data/weather\weather_New_York_20251011_235627.json
+2025-10-11 23:56:27,160 - INFO - Weather data for New York saved.
+2025-10-11 23:56:27,160 - INFO - All data refreshes complete.

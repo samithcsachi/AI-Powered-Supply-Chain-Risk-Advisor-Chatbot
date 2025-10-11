@@ -1,62 +1,40 @@
 import os
 import requests
-import json
-from pathlib import Path
-
 from dotenv import load_dotenv
+
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from utils.logger import *
+
+import logging
+logger = logging.getLogger(__name__)
+
 load_dotenv()
-
 GNEWS_API_KEY = os.getenv("GNEWS_API_KEY")
-
-KEYWORDS = [
-    "supply chain disruption",
-    "port strike",
-    "rail strike",
-    "logistics delay",
-    "weather disruption"
-]
-
 GNEWS_API_ENDPOINT = "https://gnews.io/api/v4/search"
 
-def fetch_news(keyword):
-    params = {
-        'q': keyword,
-        'token': GNEWS_API_KEY,
-        'lang': 'en',
-        'max': 100,
-    }
-    response = requests.get(GNEWS_API_ENDPOINT, params=params)
-    if response.status_code == 200:
-        return response.json().get('articles', [])
-    else:
-        print(f"Error fetching {keyword}: {response.status_code} - {response.text}")
-        return []
+class GNewsFetcher:
+    def __init__(self, api_key=GNEWS_API_KEY, endpoint=GNEWS_API_ENDPOINT):
+        self.api_key = api_key
+        self.endpoint = endpoint
+        if not self.api_key:
+            logger.error("GNEWS_API_KEY environment variable not set.")
 
-def main():
-    all_articles = []
-    for kw in KEYWORDS:
-        print(f"Fetching news for keyword: '{kw}'")
-        articles = fetch_news(kw)
-        for article in articles:
-            all_articles.append({
-                'title': article.get('title'),
-                'description': article.get('description'),
-                'publishedAt': article.get('publishedAt'),
-                'source': article.get('source', {}).get('name'),
-                'url': article.get('url'),
-                'keyword': kw
-            })
-   
-    base_path = Path(__file__).resolve().parent.parent.parent / "artifacts" / "data" / "raw"
-    base_path.mkdir(parents=True, exist_ok=True)
-    output_path = base_path / "news_events.json"
-
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(all_articles, f, indent=2, ensure_ascii=False)
-    print(f"Saved {len(all_articles)} articles to {output_path}")
-
-if __name__ == "__main__":
-    if not GNEWS_API_KEY:
-        print("ERROR: GNEWS_API_KEY environment variable not set.")
-        exit(1)
-    main()
+    def fetch_news(self, keyword, max_results=100):
+        params = {
+            'q': keyword,
+            'token': self.api_key,
+            'lang': 'en',
+            'max': max_results,
+        }
+        try:
+            logger.info(f"Fetching GNews for keyword: {keyword}")
+            response = requests.get(self.endpoint, params=params)
+            response.raise_for_status()
+            articles = response.json().get('articles', [])
+            logger.info(f"Fetched {len(articles)} articles for '{keyword}'")
+            return articles
+        except Exception as e:
+            logger.error(f"GNews fetch error for '{keyword}': {e}")
+            return []

@@ -1,0 +1,53 @@
+{
+  "count": 1,
+  "data": [
+    {
+      "app_temp": 19.3,
+      "aqi": 27,
+      "city_name": "New York City",
+      "clouds": 100,
+      "country_code": "US",
+      "datetime": "2025-10-11:19",
+      "dewpt": 17,
+      "dhi": 98,
+      "dni": 804,
+      "elev_angle": 32.46,
+      "ghi": 523,
+      "gust": 5.7,
+      "h_angle": 30,
+      "lat": 40.7128,
+      "lon": -74.006,
+      "ob_time": "2025-10-11 19:30",
+      "pod": "d",
+      "precip": 0,
+      "pres": 1021.9,
+      "rh": 88,
+      "slp": 1022,
+      "snow": 0,
+      "solar_rad": 94.1,
+      "sources": [
+        "KJRB",
+        "radar",
+        "satellite"
+      ],
+      "state_code": "NY",
+      "station": "KJRB",
+      "sunrise": "11:02",
+      "sunset": "22:20",
+      "temp": 19,
+      "timezone": "America/New_York",
+      "ts": 1760211000,
+      "uv": 1,
+      "vis": 14.5,
+      "weather": {
+        "code": 804,
+        "icon": "c04d",
+        "description": "Overcast clouds"
+      },
+      "wind_cdir": "NE",
+      "wind_cdir_full": "northeast",
+      "wind_dir": 50,
+      "wind_spd": 4.1
+    }
+  ]
+}
