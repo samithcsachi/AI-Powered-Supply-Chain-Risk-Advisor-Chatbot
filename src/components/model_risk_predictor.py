@@ -110,5 +110,22 @@ def main():
     joblib.dump(model, model_path)
     logger.info(f"Model saved to {model_path}")
 
+
+def predict_risk(region: str, days: int = 5) -> float:
+    import joblib
+    import pandas as pd
+    from pathlib import Path
+
+    model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "risk_predictor"
+    model_path = model_dir / "hist_gradient_boosting_risk_predictor.joblib"
+    model = joblib.load(model_path)
+
+    # DEMO: Replace this logic with real feature extraction as needed!
+    # Here, we simulate with a dummy DataFrame; adapt the feature values as in your real pipeline!
+    features = pd.DataFrame([{"dummy_feature1": 0}])
+    proba = model.predict_proba(features)[0, 1]
+    return float(proba)
+
+
 if __name__ == "__main__":
     main()

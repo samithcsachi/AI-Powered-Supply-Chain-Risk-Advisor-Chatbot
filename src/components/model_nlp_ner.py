@@ -104,3 +104,32 @@ def predict_entities(sentence):
 # Tests
 predict_entities("Flood in Mumbai caused delays")
 predict_entities("Storm warning for Shanghai route")
+
+
+def extract_entities(text: str) -> dict:
+    import joblib
+    import numpy as np
+    from transformers import DistilBertTokenizerFast, TFDistilBertForTokenClassification
+    from pathlib import Path
+
+    model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "nlp_ner"
+    model = TFDistilBertForTokenClassification.from_pretrained(model_dir / "ner_model")
+    tokenizer = DistilBertTokenizerFast.from_pretrained(model_dir / "ner_tokenizer")
+    label2id = joblib.load(model_dir / "label2id.joblib")
+    id2label = {i: t for t, i in label2id.items()}
+    max_len = 32
+
+    tokens = text.split()
+    encoding = tokenizer([tokens], is_split_into_words=True, return_tensors='tf', padding='max_length', truncation=True, max_length=max_len)
+    outputs = model({k: v for k, v in encoding.items() if k != "labels"})
+    logits = outputs.logits.numpy()[0]
+    pred_ids = np.argmax(logits, axis=-1)
+
+    entities = {"location": [], "event": []}
+    for w, id in zip(tokens, pred_ids[:len(tokens)]):
+        label = id2label[id]
+        if label == "B-LOC":
+            entities["location"].append(w)
+        elif label == "B-EVENT":
+            entities["event"].append(w)
+    return entities

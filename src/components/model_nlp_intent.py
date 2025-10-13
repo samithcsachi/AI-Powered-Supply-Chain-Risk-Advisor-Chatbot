@@ -120,5 +120,28 @@ def main():
         
         logger.info(f"Query: '{query}' -> Intent: {intent} (Confidence: {confidence:.3f})")
 
+
+def predict_intent(text: str) -> dict:
+    """
+    Load trained model, tokenizer, and label encoder, then predict intent for given text.
+    """
+    import joblib
+    from transformers import DistilBertTokenizer, TFDistilBertForSequenceClassification
+    import tensorflow as tf
+    from pathlib import Path
+
+    model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "nlp_intent"
+    model = TFDistilBertForSequenceClassification.from_pretrained(model_dir / "intent_model")
+    tokenizer = DistilBertTokenizer.from_pretrained(model_dir / "intent_tokenizer")
+    label_encoder = joblib.load(model_dir / "label_encoder.joblib")
+
+    inputs = tokenizer(text, return_tensors="tf", truncation=True, padding=True, max_length=128)
+    outputs = model(inputs)
+    predicted_class = tf.argmax(outputs.logits, axis=1).numpy()[0]
+    intent = label_encoder.inverse_transform([predicted_class])[0]
+    confidence = float(tf.nn.softmax(outputs.logits)[0][predicted_class].numpy())
+    return {"intent": intent, "confidence": confidence}
+
+
 if __name__ == "__main__":
     main()

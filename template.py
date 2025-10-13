@@ -41,6 +41,7 @@ list_of_paths = [
     "src/app/chatbot.py",
     "src/app/session_manager.py",
     "src/app/response_templates.py",
+    "src/app/fastapi_server.py",
 
     # tests/
     "tests/test_data_ingestion.py",
