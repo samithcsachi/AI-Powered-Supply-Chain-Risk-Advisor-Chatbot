@@ -1,12 +1,9 @@
 import pandas as pd
 import numpy as np 
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier 
 from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, RocCurveDisplay
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 from sklearn.inspection import permutation_importance
-
-
 import joblib
 import sys
 from pathlib import Path
@@ -20,28 +17,17 @@ def main():
     processed_dir = Path(__file__).resolve().parents[2] / "artifacts" / "data" / "processed"
     model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "risk_predictor"
     model_dir.mkdir(parents=True, exist_ok=True)
-
     df = pd.read_csv(processed_dir / "supply_chain_disruptions_features.csv")
-
 
     target = "is_late"
     if target not in df.columns:
         logger.error(f"Target column {target} not found.")
         return
- 
- 
+
     exclude_cols = [
-        target,
-        "Customer Id",
-        "Order Id",
-        "Order Item Id",
-        "Order Customer Id",
-        "Late_delivery_risk",                 
-        "Late Delivery Risk",
-        "Delivery Status",
-        "lead_time_days",                    
-        "Days for shipping (real)",           
-        "Days for shipment (scheduled)"      
+        target, "Customer Id", "Order Id", "Order Item Id", "Order Customer Id",
+        "Late_delivery_risk", "Late Delivery Risk", "Delivery Status",
+        "lead_time_days", "Days for shipping (real)", "Days for shipment (scheduled)"
     ]
     feature_cols = [
         c for c in df.columns 
@@ -50,26 +36,15 @@ def main():
 
     X = df[feature_cols]
     y = df[target].astype(int) 
-
-   
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, stratify=y, random_state=42
-    )
-
-   
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 
     logger.info(f"Training data shape: {X_train.shape}, Test data shape: {X_test.shape}")
 
- 
     model = HistGradientBoostingClassifier(
-        max_iter=100,            
-        learning_rate=1.0,
-        max_depth=1,
-        random_state=42
+        max_iter=100, learning_rate=1.0, max_depth=1, random_state=42
     )
     model.fit(X_train, y_train)
 
- 
     y_pred = model.predict(X_test)
     y_proba = model.predict_proba(X_test)[:, 1]
     report = classification_report(y_test, y_pred)
@@ -79,78 +54,73 @@ def main():
     logger.info(f"Confusion Matrix:\n{cm}")
     logger.info(f"ROC-AUC: {roc_auc}")
 
-
-   
-
-    # --- Feature Importance Analysis (Permutation Importance for HistGB) ---
-    result = permutation_importance(
-        model, X_test, y_test, n_repeats=10, random_state=42, n_jobs=-1
-    )
+    result = permutation_importance(model, X_test, y_test, n_repeats=10, random_state=42, n_jobs=-1)
     importances = result.importances_mean
-
-    feature_importance = pd.DataFrame({
-        'feature': X_test.columns,
-        'importance': importances
-    }).sort_values('importance', ascending=False)
-
+    feature_importance = pd.DataFrame({'feature': X_test.columns, 'importance': importances}).sort_values('importance', ascending=False)
     logger.info("Top 10 Most Important Features (Permutation Importance):")
     logger.info(feature_importance.head(10).to_string())
-
     max_importance = feature_importance['importance'].max()
     if max_importance > 0.8:
         logger.warning(f"Potential data leakage: One feature has {max_importance:.3f} importance")
 
-
-
-  
-
-    # --- Save Model ---
     model_path = model_dir / "hist_gradient_boosting_risk_predictor.joblib"
-
     joblib.dump(model, model_path)
     logger.info(f"Model saved to {model_path}")
 
+def build_feature_row(feature_cols, query_dict, reference_row=None):
 
-def predict_risk(region: str, days: int = 5) -> float:
+
+    if reference_row is None:
+        reference_row = pd.Series({col: 0 for col in feature_cols})
+
+    row = reference_row.copy()
+    for col in feature_cols:
+   
+        if 'region' in col and query_dict.get('region'):
+            row[col] = query_dict['region']
+        if 'days' in col and query_dict.get('days'):
+            row[col] = query_dict['days']
+        if 'origin' in col and query_dict.get('origin'):
+            row[col] = query_dict['origin']
+        if 'destination' in col and query_dict.get('destination'):
+            row[col] = query_dict['destination']
+        if 'event' in col and query_dict.get('event_type'):
+            row[col] = query_dict['event_type']
+        # Map event/incident triggers to binary/categorical features
+        if 'strike' in col and query_dict.get('incidents'):
+            row[col] = int(any('strike' in i for i in query_dict['incidents']))
+        if 'typhoon' in col and query_dict.get('incidents'):
+            row[col] = int(any('typhoon' in i for i in query_dict['incidents']))
+   
+    return row
+
+def predict_risk(region: str, days: int = 5, origin=None, destination=None, event_type=None, incidents=None):
     import joblib
     import pandas as pd
     from pathlib import Path
 
- 
     model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "risk_predictor"
     model_path = model_dir / "hist_gradient_boosting_risk_predictor.joblib"
     model = joblib.load(model_path)
 
     data_dir = Path(__file__).resolve().parents[2] / "artifacts" / "data" / "processed"
     feature_csv = pd.read_csv(data_dir / "supply_chain_disruptions_features.csv")
-    
-  
     feature_cols = list(model.feature_names_in_) if hasattr(model, "feature_names_in_") else list(feature_csv.columns)
-    
-    drop_cols = []
-    for col in ["is_late", "Customer Id", "Order Id", "Order Item Id", "Order Customer Id", 
-                "Late_delivery_risk", "Late Delivery Risk", "Delivery Status",
-                "lead_time_days", "Days for shipping (real)", "Days for shipment (scheduled)"]:
-        if col in feature_cols:
-            drop_cols.append(col)
-    for col in drop_cols:
-        feature_cols.remove(col)
 
-  
-    template_row = feature_csv.iloc[0][feature_cols].copy()
+    reference_row = feature_csv[feature_cols].median()
 
- 
-    if "region" in feature_cols:
-        template_row["region"] = region
-    if "days" in feature_cols:
-        template_row["days"] = days
-
-  
-    test_features = pd.DataFrame([template_row])
+    query_dict = {
+        "region": region,
+        "days": days,
+        "origin": origin,
+        "destination": destination,
+        "event_type": event_type,
+        "incidents": incidents if incidents else []
+    }
+    test_features = pd.DataFrame([build_feature_row(feature_cols, query_dict, reference_row)])
     proba = model.predict_proba(test_features)[0, 1]
     return float(proba)
 
-
-
 if __name__ == "__main__":
     main()
+    

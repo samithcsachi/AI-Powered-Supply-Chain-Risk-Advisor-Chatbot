@@ -703,3 +703,59 @@ weighted avg       0.77      0.71      0.70     36104
 2025-10-19 01:31:11,123 - INFO - Recommendation for Shanghai to Los Angeles (risk: 0.85): reroute/switch_supplier/delay
 2025-10-19 01:31:11,124 - INFO - Recommendation for Delhi to Dubai (risk: 0.55): continue_monitor
 2025-10-19 01:31:11,125 - INFO - Recommendation for Mumbai (risk: 0.15): proceed
+2025-10-19 01:42:38,460 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-19 01:42:49,506 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-19 01:42:49,507 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-19 01:42:49,507 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-19 01:44:20,747 - INFO - Top 10 Most Important Features (Permutation Importance):
+2025-10-19 01:44:20,758 - INFO -                           feature  importance
+34   Shipping_Mode_Standard Class    0.114383
+31      Shipping_Mode_First Class    0.018829
+29   Order_Status_Suspected_Fraud    0.014262
+21          Order_Status_Canceled    0.011592
+32         Shipping_Mode_Same Day    0.002983
+33     Shipping_Mode_Second Class    0.000554
+16                  Order Zipcode    0.000407
+209    Order_Country_Turkmenistán    0.000078
+96             Order_Country_Cuba    0.000011
+175         Order_Country_Polonia    0.000008
+2025-10-19 01:44:20,811 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-19 01:45:26,261 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-19 01:45:36,540 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-19 01:45:36,541 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-19 01:45:36,541 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-19 01:47:38,748 - INFO - Top 10 Most Important Features (Permutation Importance):
+2025-10-19 01:47:38,755 - INFO -                           feature  importance
+34   Shipping_Mode_Standard Class    0.114383
+31      Shipping_Mode_First Class    0.018829
+29   Order_Status_Suspected_Fraud    0.014262
+21          Order_Status_Canceled    0.011592
+32         Shipping_Mode_Same Day    0.002983
+33     Shipping_Mode_Second Class    0.000554
+16                  Order Zipcode    0.000407
+209    Order_Country_Turkmenistán    0.000078
+96             Order_Country_Cuba    0.000011
+175         Order_Country_Polonia    0.000008
+2025-10-19 01:47:38,821 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
