@@ -14,31 +14,31 @@ import logging
 logger = logging.getLogger(__name__)
 
 def generate_synthetic_data():
-    """Generate synthetic training data for intent classification."""
+    
     data = {
         'text': [
-            # Risk Check Intent
+           
             "What's the risk for Mumbai shipments?",
             "Any delays expected for Shanghai routes?",
             "Is there disruption risk for my order?",
             "Check risk status for Delhi delivery",
             "Are there any supply chain issues?",
             
-            # Weather Alert Intent
+            
             "Any weather alerts today?",
             "What's the weather situation in Beijing?",
             "Are there storms affecting deliveries?",
             "Weather conditions for logistics?",
             "Any severe weather warnings?",
             
-            # Mitigation Help Intent
+            
             "What should I do about delays?",
             "How to avoid supply chain risks?",
             "Suggest alternative routes",
             "What are my options for rerouting?",
             "Help me mitigate delivery issues",
             
-            # General Query Intent
+            
             "Hello, how can you help?",
             "What can this system do?",
             "I need information about logistics",
@@ -91,10 +91,10 @@ def main():
         metrics=['accuracy']
     )
     
-    # Train model
+   
     model.fit(train_dataset, epochs=3)
     
-    # Save model and tokenizer
+   
     model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "nlp_intent"
     model_dir.mkdir(parents=True, exist_ok=True)
     
@@ -122,13 +122,8 @@ def main():
 
 
 def predict_intent(text: str) -> dict:
-    """
-    Load trained model, tokenizer, and label encoder, then predict intent for given text.
-    """
-    import joblib
-    from transformers import DistilBertTokenizer, TFDistilBertForSequenceClassification
-    import tensorflow as tf
-    from pathlib import Path
+    
+   
 
     model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "nlp_intent"
     model = TFDistilBertForSequenceClassification.from_pretrained(model_dir / "intent_model")

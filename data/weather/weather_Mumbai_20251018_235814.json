@@ -1,0 +1,53 @@
+{
+  "count": 1,
+  "data": [
+    {
+      "app_temp": 29.8,
+      "aqi": 231,
+      "city_name": "Mumbai",
+      "clouds": 7,
+      "country_code": "IN",
+      "datetime": "2025-10-18:18",
+      "dewpt": 23,
+      "dhi": 0,
+      "dni": 0,
+      "elev_angle": -80.76,
+      "ghi": 0,
+      "gust": 0,
+      "h_angle": -90,
+      "lat": 19.076,
+      "lon": 72.8777,
+      "ob_time": "2025-10-18 19:43",
+      "pod": "n",
+      "precip": 0,
+      "pres": 1006,
+      "rh": 78,
+      "slp": 1007,
+      "snow": 0,
+      "solar_rad": 0,
+      "sources": [
+        "analysis",
+        "radar",
+        "satellite"
+      ],
+      "state_code": "16",
+      "station": "VABB",
+      "sunrise": "01:03",
+      "sunset": "12:41",
+      "temp": 27.2,
+      "timezone": "Asia/Kolkata",
+      "ts": 1760816594,
+      "uv": 0,
+      "vis": 16,
+      "weather": {
+        "code": 800,
+        "description": "Clear sky",
+        "icon": "c01n"
+      },
+      "wind_cdir": "NE",
+      "wind_cdir_full": "northeast",
+      "wind_dir": 46,
+      "wind_spd": 0
+    }
+  ]
+}

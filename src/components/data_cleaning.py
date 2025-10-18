@@ -11,20 +11,20 @@ logger = logging.getLogger(__name__)
 
 
 
-# === NEWS DATA CLEANING ===
+
 
 def clean_news_events(df):
     required_columns = ['title', 'publishedAt', 'description', 'source', 'url']
     df = df[[col for col in required_columns if col in df.columns]]
-    df = df.drop_duplicates(subset=['title', 'publishedAt'])  # remove repeated news
+    df = df.drop_duplicates(subset=['title', 'publishedAt'])  
     df['title'] = df['title'].str.strip().str.lower()
     df['description'] = df['description'].str.strip().str.lower()
     df['publishedAt'] = pd.to_datetime(df['publishedAt'], errors='coerce')
-    df = df.dropna(subset=['title', 'publishedAt'])  # drop nulls in critical cols
+    df = df.dropna(subset=['title', 'publishedAt'])  
     logger.info(f"Cleaned news events: {df.shape}")
     return df
 
-# === WEATHER DATA CLEANING ===
+
 
 def clean_weather_alerts(df):
     keep_cols = ['city', 'country', 'lat', 'lon', 'weather_main', 'timestamp']
@@ -36,7 +36,7 @@ def clean_weather_alerts(df):
     logger.info(f"Cleaned weather alerts: {df.shape}")
     return df
 
-# === SUPPLY CHAIN CSV CLEANING ===
+
 
 def clean_supply_chain_disruptions(df):
     df = df.drop_duplicates()
@@ -52,17 +52,17 @@ def clean_supply_chain_disruptions(df):
     logger.info(f"Cleaned supply chain CSV: {df.shape}")
     return df
 
-# === ENTRY POINT FOR PIPELINE/TESTING ===
+
 
 if __name__ == "__main__":
  
     artifacts = Path(__file__).resolve().parents[2] / "artifacts" / "data" / "raw"
     
-    # Load raw news
+   
     try:
         news_df = pd.read_json(artifacts / "news_events.json")
         cleaned_news = clean_news_events(news_df)
-        logger.info(f"WeNews ather Alerts cleaned successfully: shape {cleaned_news.shape}")
+        logger.info(f"News Alerts cleaned successfully: shape {cleaned_news.shape}")
     except Exception as e:
         logger.error(f"Error cleaning news: {e}")
 

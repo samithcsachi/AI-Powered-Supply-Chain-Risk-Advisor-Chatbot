@@ -502,3 +502,204 @@ weighted avg       0.77      0.71      0.70     36104
 2025-10-15 01:00:49,555 - INFO - Recommendation for Shanghai (risk: 0.85): reroute/switch_supplier/delay
 2025-10-15 01:00:49,556 - INFO - Recommendation for Delhi (risk: 0.55): continue_monitor
 2025-10-15 01:00:49,556 - INFO - Recommendation for Mumbai (risk: 0.15): proceed
+2025-10-18 23:57:09,111 - INFO - News events loaded successfully: (40, 6)
+2025-10-18 23:57:09,128 - INFO - Weather alerts loaded successfully: (8, 16)
+2025-10-18 23:57:11,748 - INFO - Historic incidents loaded successfully (ISO-8859-1): (180519, 53)
+2025-10-18 23:57:20,825 - INFO - Cleaned news events: (38, 5)
+2025-10-18 23:57:20,825 - INFO - News Alerts cleaned successfully: shape (38, 5)
+2025-10-18 23:57:20,841 - INFO - Cleaned weather alerts: (8, 6)
+2025-10-18 23:57:20,842 - INFO - Weather Alerts cleaned successfully: shape (8, 6)
+2025-10-18 23:57:25,201 - INFO - Cleaned supply chain CSV: (180519, 53)
+2025-10-18 23:57:25,201 - INFO - Supply chain CSV cleaned successfully: shape (180519, 53)
+2025-10-18 23:57:37,632 - INFO - Engineered news event features: (38, 10)
+2025-10-18 23:57:37,637 - INFO - Saved engineered news features.
+2025-10-18 23:57:37,664 - INFO - Engineered weather features: (8, 11)
+2025-10-18 23:57:37,668 - INFO - Saved engineered weather features.
+2025-10-18 23:57:40,868 - INFO - Engineered supply chain features: (180519, 251)
+2025-10-18 23:57:55,674 - INFO - Saved engineered supply chain features.
+2025-10-18 23:58:09,561 - INFO - Starting data refresh workflow...
+2025-10-18 23:58:09,562 - INFO - Fetching GNews for keyword: Mumbai
+2025-10-18 23:58:10,993 - INFO - Fetched 10 articles for 'Mumbai'
+2025-10-18 23:58:11,002 - INFO - Snapshot saved: data/news\gnews_Mumbai_20251018_235810.json
+2025-10-18 23:58:11,002 - INFO - GNews data for Mumbai saved.
+2025-10-18 23:58:11,003 - INFO - Fetching GNews for keyword: Shanghai
+2025-10-18 23:58:12,299 - INFO - Fetched 10 articles for 'Shanghai'
+2025-10-18 23:58:12,302 - INFO - Snapshot saved: data/news\gnews_Shanghai_20251018_235812.json
+2025-10-18 23:58:12,303 - INFO - GNews data for Shanghai saved.
+2025-10-18 23:58:12,303 - INFO - Fetching GNews for keyword: New York
+2025-10-18 23:58:13,527 - INFO - Fetched 10 articles for 'New York'
+2025-10-18 23:58:13,531 - INFO - Snapshot saved: data/news\gnews_New_York_20251018_235813.json
+2025-10-18 23:58:13,531 - INFO - GNews data for New York saved.
+2025-10-18 23:58:13,531 - INFO - Fetching weather for lat/lon: 19.076,72.8777
+2025-10-18 23:58:14,457 - INFO - Weather fetch success for 19.076,72.8777
+2025-10-18 23:58:14,461 - INFO - Snapshot saved: data/weather\weather_Mumbai_20251018_235814.json
+2025-10-18 23:58:14,461 - INFO - Weather data for Mumbai saved.
+2025-10-18 23:58:14,462 - INFO - Fetching weather for lat/lon: 31.2304,121.4737
+2025-10-18 23:58:15,235 - INFO - Weather fetch success for 31.2304,121.4737
+2025-10-18 23:58:15,241 - INFO - Snapshot saved: data/weather\weather_Shanghai_20251018_235815.json
+2025-10-18 23:58:15,241 - INFO - Weather data for Shanghai saved.
+2025-10-18 23:58:15,242 - INFO - Fetching weather for lat/lon: 40.7128,-74.006
+2025-10-18 23:58:15,967 - INFO - Weather fetch success for 40.7128,-74.006
+2025-10-18 23:58:15,972 - INFO - Snapshot saved: data/weather\weather_New_York_20251018_235815.json
+2025-10-18 23:58:15,972 - INFO - Weather data for New York saved.
+2025-10-18 23:58:15,972 - INFO - All data refreshes complete.
+2025-10-18 23:58:33,615 - INFO - Cleaned news events: (38, 5)
+2025-10-18 23:58:33,617 - INFO - News Alerts cleaned successfully: shape (38, 5)
+2025-10-18 23:58:33,627 - INFO - Cleaned weather alerts: (8, 6)
+2025-10-18 23:58:33,627 - INFO - Weather Alerts cleaned successfully: shape (8, 6)
+2025-10-18 23:58:38,057 - INFO - Cleaned supply chain CSV: (180519, 53)
+2025-10-18 23:58:38,058 - INFO - Supply chain CSV cleaned successfully: shape (180519, 53)
+2025-10-18 23:58:46,084 - INFO - Engineered news event features: (38, 10)
+2025-10-18 23:58:46,088 - INFO - Saved engineered news features.
+2025-10-18 23:58:46,098 - INFO - Engineered weather features: (8, 11)
+2025-10-18 23:58:46,100 - INFO - Saved engineered weather features.
+2025-10-18 23:58:49,480 - INFO - Engineered supply chain features: (180519, 251)
+2025-10-18 23:59:11,059 - INFO - Engineered news event features: (38, 10)
+2025-10-18 23:59:11,062 - INFO - Saved engineered news features.
+2025-10-18 23:59:11,071 - INFO - Engineered weather features: (8, 11)
+2025-10-18 23:59:11,073 - INFO - Saved engineered weather features.
+2025-10-18 23:59:14,574 - INFO - Engineered supply chain features: (180519, 251)
+2025-10-18 23:59:31,500 - INFO - Saved engineered supply chain features.
+2025-10-19 00:01:18,523 - INFO - Intent classification model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_intent
+2025-10-19 00:01:18,746 - INFO - Query: 'Is there risk for my Beijing shipment?' -> Intent: risk_check (Confidence: 0.287)
+2025-10-19 00:01:18,930 - INFO - Query: 'Any weather problems today?' -> Intent: weather_alert (Confidence: 0.341)
+2025-10-19 00:01:19,099 - INFO - Query: 'What should I do about delays?' -> Intent: risk_check (Confidence: 0.271)
+2025-10-19 00:02:25,545 - INFO - Starting NER model training.
+2025-10-19 00:02:55,069 - INFO - Training complete.
+2025-10-19 00:02:57,147 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:02:57,297 - INFO - Entities for: Flood in Mumbai caused delays
+2025-10-19 00:02:57,298 - INFO - Mumbai          --> B-LOC
+2025-10-19 00:02:57,436 - INFO - Entities for: Storm warning for Shanghai route
+2025-10-19 00:02:57,436 - INFO - Shanghai        --> B-LOC
+2025-10-19 00:03:45,970 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-19 00:03:57,858 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-19 00:03:57,858 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-19 00:03:57,859 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-19 00:06:18,744 - INFO - Top 10 Most Important Features (Permutation Importance):
+2025-10-19 00:06:18,766 - INFO -                           feature  importance
+34   Shipping_Mode_Standard Class    0.114383
+31      Shipping_Mode_First Class    0.018829
+29   Order_Status_Suspected_Fraud    0.014262
+21          Order_Status_Canceled    0.011592
+32         Shipping_Mode_Same Day    0.002983
+33     Shipping_Mode_Second Class    0.000554
+16                  Order Zipcode    0.000407
+209    Order_Country_Turkmenistán    0.000078
+96             Order_Country_Cuba    0.000011
+175         Order_Country_Polonia    0.000008
+2025-10-19 00:06:18,877 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-19 00:07:24,187 - INFO - Sequence shape: (43, 7, 5); Labels: (43,)
+2025-10-19 00:07:25,024 - INFO - Training LSTM risk model.
+2025-10-19 00:07:30,956 - INFO - Test Accuracy: 0.6667
+2025-10-19 00:07:31,019 - INFO - Saved LSTM model and scaler to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\timeseries_risk
+2025-10-19 00:07:31,019 - INFO - Demo prediction for next-day risk using last window of test set:
+2025-10-19 00:07:31,830 - INFO - Predicted next-day risk score: 0.564 (region: Shanghai)
+2025-10-19 00:08:24,467 - INFO - Recommendation for Shanghai (risk: 0.85): reroute/switch_supplier/delay
+2025-10-19 00:08:24,468 - INFO - Recommendation for Delhi (risk: 0.55): continue_monitor
+2025-10-19 00:08:24,468 - INFO - Recommendation for Mumbai (risk: 0.15): proceed
+2025-10-19 00:13:53,591 - INFO - Starting NER model training.
+2025-10-19 00:14:22,914 - INFO - Training complete.
+2025-10-19 00:14:25,182 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:14:25,334 - INFO - Entities for: Flood in Mumbai caused delays
+2025-10-19 00:14:25,334 - INFO - Mumbai          --> B-LOC
+2025-10-19 00:14:25,464 - INFO - Entities for: Storm warning for Shanghai route
+2025-10-19 00:14:25,464 - INFO - Shanghai        --> B-LOC
+2025-10-19 00:16:31,721 - INFO - Starting NER model training.
+2025-10-19 00:17:24,187 - INFO - Training complete.
+2025-10-19 00:17:25,979 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:17:26,113 - INFO - Entities for: Flood in Mumbai caused delays
+2025-10-19 00:17:26,115 - INFO - Mumbai          --> B-LOC
+2025-10-19 00:17:26,251 - INFO - Entities for: Storm warning for Shanghai route
+2025-10-19 00:17:26,252 - INFO - Shanghai        --> B-LOC
+2025-10-19 00:19:10,858 - INFO - Starting NER model training.
+2025-10-19 00:20:41,813 - INFO - Training complete.
+2025-10-19 00:20:43,587 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:20:43,713 - INFO - Entities for: Flood in Mumbai caused delays
+2025-10-19 00:20:43,713 - INFO - Mumbai          --> B-LOC
+2025-10-19 00:20:43,854 - INFO - Entities for: Storm warning for Shanghai route
+2025-10-19 00:20:43,854 - INFO - Shanghai        --> B-LOC
+2025-10-19 00:27:53,479 - INFO - Starting NER model training.
+2025-10-19 00:28:47,137 - INFO - Training complete.
+2025-10-19 00:28:48,929 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:31:32,544 - INFO - Starting NER model training.
+2025-10-19 00:34:31,985 - INFO - Training complete.
+2025-10-19 00:34:33,708 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:39:12,081 - INFO - Starting NER model training (tuned).
+2025-10-19 00:39:38,347 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:39:51,030 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:40:03,203 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:40:16,522 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:40:31,286 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:40:43,939 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:40:55,955 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:41:08,388 - WARNING - `evaluate()` received a value for `sample_weight`, but `weighted_metrics` were not provided.  Did you mean to pass metrics to `weighted_metrics` in `compile()`?  If this is intentional you can pass `weighted_metrics=[]` to `compile()` in order to silence this warning.
+2025-10-19 00:41:08,773 - INFO - Training complete.
+2025-10-19 00:41:08,774 - INFO - Best validation accuracy: 0.4761904776096344
+2025-10-19 00:41:11,274 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:42:15,998 - INFO - Starting NER model training (tuned).
+2025-10-19 00:44:11,018 - INFO - Training complete.
+2025-10-19 00:44:11,018 - INFO - Best validation accuracy: 0.5555555820465088
+2025-10-19 00:44:12,909 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:48:23,783 - INFO - Starting NER model training (tuned).
+2025-10-19 00:51:42,614 - INFO - Training complete.
+2025-10-19 00:51:42,614 - INFO - Best validation accuracy: 0.46296295523643494
+2025-10-19 00:51:44,551 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:53:27,676 - INFO - Starting NER model training (tuned).
+2025-10-19 00:54:48,871 - INFO - Training complete.
+2025-10-19 00:54:48,871 - INFO - Best validation accuracy: 0.5740740895271301
+2025-10-19 00:54:50,733 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 00:56:00,194 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-19 00:56:11,904 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-19 00:56:11,904 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-19 00:56:11,904 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-19 00:57:51,830 - INFO - Top 10 Most Important Features (Permutation Importance):
+2025-10-19 00:57:51,839 - INFO -                           feature  importance
+34   Shipping_Mode_Standard Class    0.114383
+31      Shipping_Mode_First Class    0.018829
+29   Order_Status_Suspected_Fraud    0.014262
+21          Order_Status_Canceled    0.011592
+32         Shipping_Mode_Same Day    0.002983
+33     Shipping_Mode_Second Class    0.000554
+16                  Order Zipcode    0.000407
+209    Order_Country_Turkmenistán    0.000078
+96             Order_Country_Cuba    0.000011
+175         Order_Country_Polonia    0.000008
+2025-10-19 00:57:51,879 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-19 00:59:02,551 - INFO - Sequence shape: (43, 7, 5); Labels: (43,)
+2025-10-19 00:59:03,047 - INFO - Training LSTM risk model.
+2025-10-19 00:59:07,943 - INFO - Test Accuracy: 0.7778
+2025-10-19 00:59:07,990 - INFO - Saved LSTM model and scaler to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\timeseries_risk
+2025-10-19 00:59:07,990 - INFO - Demo prediction for next-day risk using last window of test set:
+2025-10-19 00:59:08,720 - INFO - Predicted next-day risk score: 0.533 (region: Shanghai)
+2025-10-19 01:05:48,656 - INFO - Recommendation for Shanghai (risk: 0.85): reroute/switch_supplier/delay
+2025-10-19 01:05:48,657 - INFO - Recommendation for Delhi (risk: 0.55): continue_monitor
+2025-10-19 01:05:48,657 - INFO - Recommendation for Mumbai (risk: 0.15): proceed
+2025-10-19 01:16:10,932 - INFO - Starting NER model training (tuned).
+2025-10-19 01:17:41,688 - INFO - Training complete.
+2025-10-19 01:17:41,688 - INFO - Best validation accuracy: 0.5833333134651184
+2025-10-19 01:17:43,543 - INFO - NER (TF) model, tokenizer, and label map saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\nlp_ner
+2025-10-19 01:31:11,123 - INFO - Recommendation for Shanghai to Los Angeles (risk: 0.85): reroute/switch_supplier/delay
+2025-10-19 01:31:11,124 - INFO - Recommendation for Delhi to Dubai (risk: 0.55): continue_monitor
+2025-10-19 01:31:11,125 - INFO - Recommendation for Mumbai (risk: 0.15): proceed

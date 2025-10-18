@@ -116,15 +116,40 @@ def predict_risk(region: str, days: int = 5) -> float:
     import pandas as pd
     from pathlib import Path
 
+ 
     model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "risk_predictor"
     model_path = model_dir / "hist_gradient_boosting_risk_predictor.joblib"
     model = joblib.load(model_path)
 
-    # DEMO: Replace this logic with real feature extraction as needed!
-    # Here, we simulate with a dummy DataFrame; adapt the feature values as in your real pipeline!
-    features = pd.DataFrame([{"dummy_feature1": 0}])
-    proba = model.predict_proba(features)[0, 1]
+    data_dir = Path(__file__).resolve().parents[2] / "artifacts" / "data" / "processed"
+    feature_csv = pd.read_csv(data_dir / "supply_chain_disruptions_features.csv")
+    
+  
+    feature_cols = list(model.feature_names_in_) if hasattr(model, "feature_names_in_") else list(feature_csv.columns)
+    
+    drop_cols = []
+    for col in ["is_late", "Customer Id", "Order Id", "Order Item Id", "Order Customer Id", 
+                "Late_delivery_risk", "Late Delivery Risk", "Delivery Status",
+                "lead_time_days", "Days for shipping (real)", "Days for shipment (scheduled)"]:
+        if col in feature_cols:
+            drop_cols.append(col)
+    for col in drop_cols:
+        feature_cols.remove(col)
+
+  
+    template_row = feature_csv.iloc[0][feature_cols].copy()
+
+ 
+    if "region" in feature_cols:
+        template_row["region"] = region
+    if "days" in feature_cols:
+        template_row["days"] = days
+
+  
+    test_features = pd.DataFrame([template_row])
+    proba = model.predict_proba(test_features)[0, 1]
     return float(proba)
+
 
 
 if __name__ == "__main__":
