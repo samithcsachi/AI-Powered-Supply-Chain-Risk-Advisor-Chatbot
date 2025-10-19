@@ -24,23 +24,19 @@ list_of_paths = [
 
     # src/config, src/constants, src/entity
     "src/config/config.py",
-    "src/constants/constants.py",
-    "src/entity/event_entity.py",
-    "src/entity/prediction_entity.py",
+
+   
 
     # src/pipeline/ for orchestration scripts
-    "src/pipeline/train_pipeline.py",
-    "src/pipeline/predict_pipeline.py",
-    "src/pipeline/inference_pipeline.py",
+    "src/pipeline/data_refresh_workflow.py",
+   
 
     # src/utils/
-    "src/utils/helpers.py",
+
     "src/utils/logger.py",
 
     # src/app/ for Chainlit chatbot logic
     "src/app/chatbot.py",
-    "src/app/session_manager.py",
-    "src/app/response_templates.py",
     "src/app/fastapi_server.py",
 
     # tests/
