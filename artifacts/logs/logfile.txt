@@ -759,3 +759,91 @@ weighted avg       0.77      0.71      0.70     36104
 96             Order_Country_Cuba    0.000011
 175         Order_Country_Polonia    0.000008
 2025-10-19 01:47:38,821 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-20 10:31:14,771 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-20 10:31:25,327 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-20 10:31:25,327 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-20 10:31:25,328 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-20 10:33:09,439 - INFO - Top 10 Most Important Features (Permutation Importance):
+2025-10-20 10:33:09,446 - INFO -                           feature  importance
+34   Shipping_Mode_Standard Class    0.114383
+31      Shipping_Mode_First Class    0.018829
+29   Order_Status_Suspected_Fraud    0.014262
+21          Order_Status_Canceled    0.011592
+32         Shipping_Mode_Same Day    0.002983
+33     Shipping_Mode_Second Class    0.000554
+16                  Order Zipcode    0.000407
+209    Order_Country_Turkmenistán    0.000078
+96             Order_Country_Cuba    0.000011
+175         Order_Country_Polonia    0.000008
+2025-10-20 10:33:09,490 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-20 10:33:09,625 - INFO - Loaded model from D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-20 10:33:16,604 - INFO - Predicting risk for: {'region': 'UAE', 'days': 5, 'origin': None, 'destination': None, 'event_type': None, 'incidents': [], 'shipping_mode': None}
+2025-10-20 10:33:16,613 - INFO - Predicted risk score: 0.207
+2025-10-20 10:33:16,672 - INFO - Loaded model from D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-20 10:33:23,030 - INFO - Predicting risk for: {'region': 'Shanghai', 'days': 5, 'origin': None, 'destination': None, 'event_type': None, 'incidents': ['port strike'], 'shipping_mode': None}
+2025-10-20 10:33:23,039 - INFO - Predicted risk score: 0.207
+2025-10-20 10:33:23,040 - INFO - Applied critical event boost: +20.0%, new score: 0.248
+2025-10-20 10:33:23,105 - INFO - Loaded model from D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-20 10:33:29,526 - INFO - Predicting risk for: {'region': 'Mumbai', 'days': 3, 'origin': None, 'destination': None, 'event_type': None, 'incidents': ['typhoon', 'port congestion'], 'shipping_mode': None}
+2025-10-20 10:33:29,536 - INFO - Predicted risk score: 0.207
+2025-10-20 10:33:29,537 - INFO - Applied critical event boost: +25.0%, new score: 0.258
+2025-10-20 10:33:29,593 - INFO - Loaded model from D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-20 10:33:36,089 - INFO - Predicting risk for: {'region': 'Singapore', 'days': 7, 'origin': 'USA', 'destination': 'Singapore', 'event_type': None, 'incidents': [], 'shipping_mode': None}
+2025-10-20 10:33:36,098 - INFO - Predicted risk score: 0.207
+2025-10-20 10:42:18,687 - INFO - Training data shape: (144415, 222), Test data shape: (36104, 222)
+2025-10-20 10:42:29,501 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.92      0.74     16308
+           1       0.89      0.54      0.67     19796
+
+    accuracy                           0.71     36104
+   macro avg       0.76      0.73      0.71     36104
+weighted avg       0.77      0.71      0.70     36104
+
+2025-10-20 10:42:29,502 - INFO - Confusion Matrix:
+[[14934  1374]
+ [ 9022 10774]]
+2025-10-20 10:42:29,502 - INFO - ROC-AUC: 0.7698896338309328
+2025-10-20 10:44:00,496 - INFO - Top 10 Most Important Features (Permutation Importance):
+2025-10-20 10:44:00,500 - INFO -                           feature  importance
+34   Shipping_Mode_Standard Class    0.114383
+31      Shipping_Mode_First Class    0.018829
+29   Order_Status_Suspected_Fraud    0.014262
+21          Order_Status_Canceled    0.011592
+32         Shipping_Mode_Same Day    0.002983
+33     Shipping_Mode_Second Class    0.000554
+16                  Order Zipcode    0.000407
+209    Order_Country_Turkmenistán    0.000078
+96             Order_Country_Cuba    0.000011
+175         Order_Country_Polonia    0.000008
+2025-10-20 10:44:00,529 - INFO - Model saved to D:\SAMITH\Github\AI-Powered-Supply-Chain-Risk-Advisor-Chatbot\artifacts\models\risk_predictor\hist_gradient_boosting_risk_predictor.joblib
+2025-10-20 10:44:00,592 - INFO - Rule-based risk for UAE: 0.258
+2025-10-20 10:44:07,494 - INFO - ML model risk for UAE: 0.400
+2025-10-20 10:44:07,495 - INFO - Hybrid risk (no incidents): ML=0.400*0.7 + Rule=0.258*0.3 = 0.357
+2025-10-20 10:44:07,530 - INFO - Rule-based risk for Shanghai: 0.618
+2025-10-20 10:44:13,879 - INFO - ML model risk for Shanghai: 0.400
+2025-10-20 10:44:13,879 - INFO - Hybrid risk (with incidents): ML=0.400*0.4 + Rule=0.618*0.6 = 0.531
+2025-10-20 10:44:13,914 - INFO - Rule-based risk for Mumbai: 0.535
+2025-10-20 10:44:20,983 - INFO - ML model risk for Mumbai: 0.400
+2025-10-20 10:44:20,983 - INFO - Hybrid risk (with incidents): ML=0.400*0.4 + Rule=0.535*0.6 = 0.481
+2025-10-20 10:44:21,008 - INFO - Rule-based risk for Singapore: 0.227
+2025-10-20 10:44:27,297 - INFO - ML model risk for Singapore: 0.400
+2025-10-20 10:44:27,298 - INFO - Hybrid risk (no incidents): ML=0.400*0.7 + Rule=0.227*0.3 = 0.348
+2025-10-20 10:44:27,329 - INFO - Rule-based risk for Singapore: 0.287
+2025-10-20 10:44:33,750 - INFO - ML model risk for Singapore: 0.400
+2025-10-20 10:44:33,750 - INFO - Hybrid risk (with incidents): ML=0.400*0.4 + Rule=0.287*0.6 = 0.332
+2025-10-20 10:44:33,785 - INFO - Rule-based risk for Shanghai: 0.948
+2025-10-20 10:44:39,992 - INFO - ML model risk for Shanghai: 0.400
+2025-10-20 10:44:39,992 - INFO - Hybrid risk (with incidents): ML=0.400*0.4 + Rule=0.948*0.6 = 0.729

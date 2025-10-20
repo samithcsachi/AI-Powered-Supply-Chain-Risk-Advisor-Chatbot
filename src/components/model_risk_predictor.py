@@ -67,60 +67,207 @@ def main():
     joblib.dump(model, model_path)
     logger.info(f"Model saved to {model_path}")
 
+
 def build_feature_row(feature_cols, query_dict, reference_row=None):
-
-
+    
     if reference_row is None:
         reference_row = pd.Series({col: 0 for col in feature_cols})
 
     row = reference_row.copy()
+    
+    
+    shipping_mode = query_dict.get('shipping_mode', 'Standard Class')
     for col in feature_cols:
+        if 'Shipping_Mode' in col and shipping_mode in col:
+            row[col] = 1
+            logger.debug(f"Set shipping mode: {col} = 1")
+    
    
-        if 'region' in col and query_dict.get('region'):
-            row[col] = query_dict['region']
-        if 'days' in col and query_dict.get('days'):
-            row[col] = query_dict['days']
-        if 'origin' in col and query_dict.get('origin'):
-            row[col] = query_dict['origin']
-        if 'destination' in col and query_dict.get('destination'):
-            row[col] = query_dict['destination']
-        if 'event' in col and query_dict.get('event_type'):
-            row[col] = query_dict['event_type']
-        # Map event/incident triggers to binary/categorical features
-        if 'strike' in col and query_dict.get('incidents'):
-            row[col] = int(any('strike' in i for i in query_dict['incidents']))
-        if 'typhoon' in col and query_dict.get('incidents'):
-            row[col] = int(any('typhoon' in i for i in query_dict['incidents']))
-   
+    region = query_dict.get('region', '')
+    for col in feature_cols:
+        if 'Order_Country' in col or 'Order_Region' in col:
+            if region in col:
+                row[col] = 1
+    
+    
+    for col in feature_cols:
+        if 'Order_Status_COMPLETE' in col:
+            row[col] = 1
+    
     return row
 
-def predict_risk(region: str, days: int = 5, origin=None, destination=None, event_type=None, incidents=None):
-    import joblib
-    import pandas as pd
-    from pathlib import Path
 
-    model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "risk_predictor"
-    model_path = model_dir / "hist_gradient_boosting_risk_predictor.joblib"
-    model = joblib.load(model_path)
 
-    data_dir = Path(__file__).resolve().parents[2] / "artifacts" / "data" / "processed"
-    feature_csv = pd.read_csv(data_dir / "supply_chain_disruptions_features.csv")
-    feature_cols = list(model.feature_names_in_) if hasattr(model, "feature_names_in_") else list(feature_csv.columns)
+REGION_BASE_RISKS = {
+    "Shanghai": 0.55,
+    "Singapore": 0.30,
+    "Mumbai": 0.45,
+    "Dubai": 0.35,
+    "UAE": 0.35,
+    "USA": 0.30,
+    "Germany": 0.25,
+    "China": 0.55,
+    "India": 0.45,
+    "Hong Kong": 0.50,
+    "Rotterdam": 0.28,
+    "Los Angeles": 0.40,
+}
 
-    reference_row = feature_csv[feature_cols].median()
 
-    query_dict = {
-        "region": region,
-        "days": days,
-        "origin": origin,
-        "destination": destination,
-        "event_type": event_type,
-        "incidents": incidents if incidents else []
-    }
-    test_features = pd.DataFrame([build_feature_row(feature_cols, query_dict, reference_row)])
-    proba = model.predict_proba(test_features)[0, 1]
-    return float(proba)
+EVENT_RISK_MULTIPLIERS = {
+    "strike": 0.30,
+    "port strike": 0.35,
+    "typhoon": 0.35,
+    "hurricane": 0.35,
+    "earthquake": 0.40,
+    "flood": 0.25,
+    "port closure": 0.45,
+    "supplier outage": 0.25,
+    "customs delay": 0.15,
+    "congestion": 0.20,
+    "pandemic": 0.30,
+    "war": 0.50,
+    "sanctions": 0.40,
+}
+
+
+def calculate_rule_based_risk(region, days, incidents):
+    
+    base_risk = REGION_BASE_RISKS.get(region, 0.40)
+    
+
+    event_risk = 0.0
+    if incidents:
+        for incident in incidents:
+            incident_lower = str(incident).lower()
+            for event_keyword, multiplier in EVENT_RISK_MULTIPLIERS.items():
+                if event_keyword in incident_lower:
+                    event_risk += multiplier
+                    logger.debug(f"Event '{event_keyword}' detected in '{incident}', adding {multiplier}")
+    
+   
+    time_factor = max(0.1, 1.0 - (days / 30.0))
+    
+  
+    rule_risk = (base_risk * 0.5 + event_risk * 0.4 + time_factor * 0.1)
+    
+    return min(1.0, rule_risk)
+
+
+def predict_risk(region: str, days: int = 5, origin=None, destination=None, 
+                 event_type=None, incidents=None, shipping_mode=None):
+
+    try:
+        import joblib
+        import pandas as pd
+        from pathlib import Path
+
+        model_dir = Path(__file__).resolve().parents[2] / "artifacts" / "models" / "risk_predictor"
+        model_path = model_dir / "hist_gradient_boosting_risk_predictor.joblib"
+        
+        
+        if shipping_mode is None:
+            shipping_mode = "Standard Class"
+        
+      
+        rule_risk = calculate_rule_based_risk(region, days, incidents or [])
+        logger.info(f"Rule-based risk for {region}: {rule_risk:.3f}")
+        
+  
+        ml_risk = 0.40  
+        
+        if model_path.exists():
+            try:
+                model = joblib.load(model_path)
+                logger.debug(f"Loaded ML model from {model_path}")
+
+                data_dir = Path(__file__).resolve().parents[2] / "artifacts" / "data" / "processed"
+                feature_csv_path = data_dir / "supply_chain_disruptions_features.csv"
+                
+                if feature_csv_path.exists():
+                    feature_csv = pd.read_csv(feature_csv_path)
+                    feature_cols = list(model.feature_names_in_) if hasattr(model, "feature_names_in_") else list(feature_csv.columns)
+
+                    reference_row = feature_csv[feature_cols].median()
+
+                    query_dict = {
+                        "region": region,
+                        "days": days,
+                        "origin": origin,
+                        "destination": destination,
+                        "shipping_mode": shipping_mode,
+                    }
+                    
+                    test_features = pd.DataFrame([build_feature_row(feature_cols, query_dict, reference_row)])
+                    ml_risk = float(model.predict_proba(test_features)[0, 1])
+                    logger.info(f"ML model risk for {region}: {ml_risk:.3f}")
+            except Exception as e:
+                logger.warning(f"Could not get ML prediction: {e}")
+        
+        
+        if incidents and len(incidents) > 0:
+           
+            final_risk = (ml_risk * 0.40) + (rule_risk * 0.60)
+            logger.info(f"Hybrid risk (with incidents): ML={ml_risk:.3f}*0.4 + Rule={rule_risk:.3f}*0.6 = {final_risk:.3f}")
+        else:
+           
+            final_risk = (ml_risk * 0.70) + (rule_risk * 0.30)
+            logger.info(f"Hybrid risk (no incidents): ML={ml_risk:.3f}*0.7 + Rule={rule_risk:.3f}*0.3 = {final_risk:.3f}")
+        
+      
+        final_risk = float(np.clip(final_risk, 0.0, 1.0))
+        
+        return round(final_risk, 2)
+    
+    except Exception as e:
+        logger.error(f"Error in predict_risk: {e}", exc_info=True)
+        return 0.50
+
 
 if __name__ == "__main__":
     main()
     
+
+    print("\n" + "="*60)
+    print("Testing HYBRID Risk Predictions (ML + Rules)")
+    print("="*60)
+    
+
+    print("\n1. UAE with no events:")
+    risk1 = predict_risk("UAE", days=5, incidents=[])
+    print(f"   → Risk Score: {risk1:.2f}")
+    
+ 
+    print("\n2. Shanghai with port strike:")
+    risk2 = predict_risk("Shanghai", days=5, incidents=["port strike"])
+    print(f"   → Risk Score: {risk2:.2f}")
+    print(f"   → Increase: +{(risk2-risk1)*100:.1f}%")
+    
+  
+    print("\n3. Mumbai with typhoon and port congestion:")
+    risk3 = predict_risk("Mumbai", days=3, incidents=["typhoon", "port congestion"])
+    print(f"   → Risk Score: {risk3:.2f}")
+    print(f"   → Increase: +{(risk3-risk1)*100:.1f}%")
+    
+
+    print("\n4. USA to Singapore route (no events):")
+    risk4 = predict_risk("Singapore", days=7, origin="USA", destination="Singapore", incidents=[])
+    print(f"   → Risk Score: {risk4:.2f}")
+    
+
+    print("\n5. USA to Singapore with equipment failure:")
+    risk5 = predict_risk("Singapore", days=7, origin="USA", destination="Singapore", 
+                        incidents=["equipment failure", "customs delay"])
+    print(f"   → Risk Score: {risk5:.2f}")
+    print(f"   → Increase: +{(risk5-risk4)*100:.1f}%")
+    
+
+    print("\n6. Shanghai with multiple critical events:")
+    risk6 = predict_risk("Shanghai", days=2, incidents=["typhoon", "port strike", "port closure"])
+    print(f"   → Risk Score: {risk6:.2f} ")
+    
+    print("\n" + "="*60)
+    print("Hybrid approach combines:")
+    print("   - ML Model: Historical shipping patterns")
+    print("   - Rules: Real-time events and regional factors")
+    print("="*60)
