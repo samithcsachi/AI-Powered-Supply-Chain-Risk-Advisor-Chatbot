@@ -34,14 +34,14 @@ def nlp_analysis(query: str):
 
 @app.get("/predict-risk/")
 def predict_risk_api(region: str, days: Optional[int] = 5):
-    """Return risk prediction for a region next N days."""
+   
     risk_score = predict_risk(region, days)
     return {"region": region, "risk_score": risk_score, "days": days}
 
 @app.get("/events/")
 def events_api(region: Optional[str] = None):
-    """Query past incidents/events for a region or all regions."""
-    # Replace this with real event loading (e.g., from your snapshot/data files)
+    
+
     sample_events = [
         {"region": "Germany", "event": "railway strike", "date": "2025-09-23"},
         {"region": "Mumbai", "event": "weather alert", "date": "2025-10-05"},
@@ -60,7 +60,7 @@ def recommendation_api(
     recent_incidents: Optional[List[str]] = Query(None),
     weather_alert: Optional[str] = None
 ):
-    """Get mitigation recommendation for region and risk."""
+   
     advice = generate_recommendation(
         risk_score=risk,
         region=region,
@@ -72,10 +72,10 @@ def recommendation_api(
 
 @app.get("/bot/")
 def chatbot_api(query: str):
-    """Full pipeline: intent, entities, risk prediction and recommendation."""
+   
     intent_result = predict_intent(query)
     entities = extract_entities_pipeline(query)
-    # Use the first location found or default to Mumbai for demo if missing
+   
     region = None
     if entities.get("location"):
         region = entities["location"][0] if isinstance(entities["location"], list) and entities["location"] else entities["location"]

@@ -52,8 +52,8 @@ def refresh_weather(weather_regions, out_dir):
 
 def run_all():
     logger.info("Starting data refresh workflow...")
-    regions = API_CONFIG['regions']              # For GNews
-    weather_regions = API_CONFIG['weather_regions'] # For WeatherBit
+    regions = API_CONFIG['regions']              
+    weather_regions = API_CONFIG['weather_regions'] 
     news_dir = API_CONFIG['news_output_dir']
     weather_dir = API_CONFIG['weather_output_dir']
 

@@ -16,7 +16,7 @@ def test_gnews_fetcher_live():
     fetcher = GNewsFetcher()
     articles = fetcher.fetch_news("Mumbai", max_results=2)
     assert isinstance(articles, list)
-    # If API works, should be 0 or more articles—no crash
+    
     for article in articles:
         assert "title" in article
 
