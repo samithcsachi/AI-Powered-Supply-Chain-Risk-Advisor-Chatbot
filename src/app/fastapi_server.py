@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from components.model_nlp_intent import predict_intent
-from components.model_nlp_ner import extract_entities
+from components.model_nlp_ner import extract_entities_pipeline
 from components.model_risk_predictor import predict_risk
 from components.recommendation_engine import generate_recommendation
 
@@ -24,7 +24,7 @@ def health():
 def nlp_analysis(query: str):
     """Run both intent and entity extraction on a user query."""
     intent_result = predict_intent(query)
-    entities = extract_entities(query)
+    entities = extract_entities_pipeline(query)
     return {
         "query": query,
         "intent": intent_result["intent"],
@@ -74,7 +74,7 @@ def recommendation_api(
 def chatbot_api(query: str):
     """Full pipeline: intent, entities, risk prediction and recommendation."""
     intent_result = predict_intent(query)
-    entities = extract_entities(query)
+    entities = extract_entities_pipeline(query)
     # Use the first location found or default to Mumbai for demo if missing
     region = None
     if entities.get("location"):

@@ -1,19 +1,31 @@
-requests
-pandas
-numpy
-chainlit
-python-dotenv  
-tensorflow==2.12
-keras==2.12
-transformers==4.33.2
-tf-keras
-fastapi 
-uvicorn 
-docker
-pytest 
-kaggle 
-scikit-learn
-joblib
-fastapi
-uvicorn
-pytest-asyncio
+# Base
+numpy==1.26.4
+pandas==2.2.2
+requests==2.32.3
+
+# Machine Learning
+scikit-learn==1.5.2
+joblib==1.4.2
+
+# Deep Learning (TensorFlow + Keras)
+tensorflow==2.15.0
+keras==2.15.0
+protobuf==3.20.3
+
+# NLP / Transformers
+transformers==4.37.2
+sentencepiece==0.2.0
+torch==2.1.0
+
+# Backend / Web
+fastapi==0.110.2
+uvicorn==0.25.0
+python-dotenv==1.0.1
+pydantic<2
+
+# Chainlit App
+chainlit==1.1.301
+
+# Tools
+pytest==8.3.2
+pytest-asyncio==0.24.0

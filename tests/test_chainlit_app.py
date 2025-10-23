@@ -45,7 +45,7 @@ def mock_chainlit_message():
 @pytest.mark.parametrize("qset", TYPICAL_QUERIES)
 async def test_message_handling_logic(qset, mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
 
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
@@ -73,7 +73,7 @@ async def test_message_handling_logic(qset, mock_chainlit_message):
             content = qset["message"]
 
   
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
      
         mock_intent.assert_called_once_with(qset["message"])
@@ -88,9 +88,9 @@ async def test_message_handling_logic(qset, mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_welcome_message(mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
-    await chatbot.welcome()
+    await app.welcome()
     
   
     mock_chainlit_message.send.assert_called_once()
@@ -99,7 +99,7 @@ async def test_welcome_message(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_default_region_fallback(mock_chainlit_message):
     """Test that Mumbai is used as default when no location found"""
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -114,7 +114,7 @@ async def test_default_region_fallback(mock_chainlit_message):
         class DummyMsg:
             content = "What is the risk level?"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
  
         mock_risk.assert_called_once()
@@ -125,7 +125,7 @@ async def test_default_region_fallback(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_entity_extraction(mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -143,7 +143,7 @@ async def test_entity_extraction(mock_chainlit_message):
         class DummyMsg:
             content = "Typhoon and strike affecting China USA shipments"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
 
         mock_ner.assert_called_once()
@@ -155,7 +155,7 @@ async def test_entity_extraction(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_risk_score_calculation(mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -170,7 +170,7 @@ async def test_risk_score_calculation(mock_chainlit_message):
         class DummyMsg:
             content = "Port strike in Shanghai"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
     
         mock_risk.assert_called_once_with("Shanghai", days=5)
@@ -179,7 +179,7 @@ async def test_risk_score_calculation(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_recommendation_generation(mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -197,7 +197,7 @@ async def test_recommendation_generation(mock_chainlit_message):
         class DummyMsg:
             content = "What should I do about Shanghai strike?"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
     
         mock_reco.assert_called_once()
@@ -211,7 +211,7 @@ async def test_recommendation_generation(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_shanghai_typhoon_warning(mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -226,7 +226,7 @@ async def test_shanghai_typhoon_warning(mock_chainlit_message):
         class DummyMsg:
             content = "Weather in Shanghai?"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
    
         call_kwargs = mock_reco.call_args[1]
@@ -236,7 +236,7 @@ async def test_shanghai_typhoon_warning(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_non_shanghai_no_typhoon(mock_chainlit_message):
  
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -251,7 +251,7 @@ async def test_non_shanghai_no_typhoon(mock_chainlit_message):
         class DummyMsg:
             content = "Weather in Mumbai?"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
    
         call_kwargs = mock_reco.call_args[1]
@@ -261,7 +261,7 @@ async def test_non_shanghai_no_typhoon(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_response_format(mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -279,7 +279,7 @@ async def test_response_format(mock_chainlit_message):
         class DummyMsg:
             content = "Risk in Dubai?"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
        
         assert mock_chainlit_message.send.call_count == 2
@@ -288,7 +288,7 @@ async def test_response_format(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_list_location_extraction(mock_chainlit_message):
 
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -306,7 +306,7 @@ async def test_list_location_extraction(mock_chainlit_message):
         class DummyMsg:
             content = "Risk between Singapore and Malaysia?"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
  
         mock_risk.assert_called_once_with("Singapore", days=5)
@@ -315,7 +315,7 @@ async def test_list_location_extraction(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_empty_location_list(mock_chainlit_message):
   
-    from src.app import chatbot
+    from app import app
     
     with patch("src.app.chatbot.predict_intent") as mock_intent, \
          patch("src.app.chatbot.extract_entities_pipeline") as mock_ner, \
@@ -330,7 +330,7 @@ async def test_empty_location_list(mock_chainlit_message):
         class DummyMsg:
             content = "General supply chain info?"
 
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
 
      
         mock_risk.assert_called_once_with("Mumbai", days=5)
@@ -340,13 +340,13 @@ async def test_empty_location_list(mock_chainlit_message):
 @pytest.mark.asyncio
 async def test_real_models_integration(mock_chainlit_message):
  
-    from src.app import chatbot
+    from app import app
     
     class DummyMsg:
         content = "Is there a delay in Shanghai port?"
     
     try:
-        await chatbot.handle_message(DummyMsg())
+        await app.handle_message(DummyMsg())
        
         assert mock_chainlit_message.send.called
     except Exception as e:
