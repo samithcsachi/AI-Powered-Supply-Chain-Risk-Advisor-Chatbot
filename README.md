@@ -14,7 +14,7 @@ Badge [source](https://shields.io/)
 
 An end-to-end open-source conversational assistant for real-time supply chain risk analysis and management, built on TensorFlow.
 
-Hugging Face Spaces Gradio App link : [https://huggingface.co/spaces/samithcs/chainlit-supplychain-app](https://huggingface.co/spaces/samithcs/chainlit-supplychain-app)
+Hugging Face Spaces Chainlit App link : [https://huggingface.co/spaces/samithcs/chainlit-supplychain-app](https://huggingface.co/spaces/samithcs/chainlit-supplychain-app)
 
 Docker link : [https://hub.docker.com/repository/docker/samithc/chainlit-supplychain-app](https://hub.docker.com/repository/docker/samithc/chainlit-supplychain-app)
 
